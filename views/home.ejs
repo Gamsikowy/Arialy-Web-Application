@@ -1,0 +1,230 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,600&display=swap" rel="stylesheet">
+    <link href="/css/home.css" rel="stylesheet" type="text/css"/>
+    <title>Arialy - Your Trusted Banking</title>
+</head>
+<body>
+    <header>
+        <div class="upper-nav-bar">
+            <div class="logo-title">
+                <form action="/home" method="POST" class="logo-navigate">
+                    <img src="/img/logo-title.png" alt="">
+                </form>
+            </div>
+            <div class="sign-log-in">
+                <button class="skip-log-btn">Log In</button>
+                <button class="skip-reg-btn">Sign Up</button>
+                <button class="news-btn">Newsletter</button>
+            </div>
+        </div>
+        <nav>
+            <ul class="ul-navbar">
+                <form action="/home" method="POST"><li>Home</li></form>
+                <form action="/markets" method="POST"><li>Markets</li></form>
+                <form action="/budgetPlanner" method="POST"><li>Budget Planner</li></form>
+                <form action="/newsReader" method="POST"><li>News</li></form>
+                <form action="/FAQ" method="POST"><li>FAQ</li></form>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="communication">
+             <%- include('partials/messages'); %>
+        </div>
+        <div class="slider">
+            <div class="hover-communique">Hover to stop the slider</div>
+            <figure>
+                <div class="img-space" id="slide-one">
+                    <img src="/img/1.jpg" alt="Image cannot be loaded">
+                    <div class="img-text">
+                        <h3>Everything in one place</h3>
+                        <p>Within one application you have access to current news from the world of finance, personal home budget planner and more</p>
+                    </div>
+                </div>
+                <div class="img-space" id="slide-one">
+                    <img src="/img/2.jpg" alt="Image cannot be loaded">
+                    <div class="img-text">
+                        <h3>Trusted and helpful service</h3>
+                        <p>Our bank offers a continuous helpline so that you can always consult with us. We will also gladly answer your emails</p>
+                    </div>
+                </div>
+                <div class="img-space" id="slide-one">
+                    <img src="/img/3.jpg" alt="Image cannot be loaded">
+                    <div class="img-text">
+                        <h3>Invest in yourself</h3>
+                        <p>Our specialists are working on new innovations so that your money can be well invested and the bank be well secured</p>
+                    </div>
+                </div>
+                <div class="img-space" id="slide-one">
+                    <img src="/img/4.jpg" alt="Image cannot be loaded">
+                    <div class="img-text">
+                        <h3>Convenience and quick response</h3>
+                        <p>Our website provides real-time insight into crypto and capital markets, so that you can make favorable decisions as soon as possible</p>
+                    </div>
+                </div>
+                <div class="img-space" id="slide-one">
+                    <img src="/img/1.jpg" alt="Image cannot be loaded">
+                    <div class="img-text">
+                        <h3>Everything in one place</h3>
+                        <p>Within one application you have access to current news from the world of finance and more</p>
+                    </div>
+                </div>
+            </figure>
+        </div>
+        <div class="incentive">
+            <button type="button" class="incentive-btn">Open an account and join Arialy</button>
+        </div>
+        <div class="dynamic-count-ad">
+            <div class="satisfaction-counter-bg-ad">
+                <div class="counter" id="satisfaction-counter-ad" data-target="97" data-flag="percentage">0</div>
+                <div class="describe-satisfaction">Satisfied Customers</div>
+            </div>
+            <div class="frequency-counter-bg-ad">
+                <div class="counter" id="frequency-counter-ad" data-target="353" data-flag="seconds">0</div>
+                <div class="describe-frequency">A new account is created every 353 seconds</div>
+            </div>
+            <div class="investments-counter-bg-ad">
+                <div class="counter" id="investments-counter-ad" data-target="85" data-flag="percentage">0</div>
+                <div class="describe-investments">Successful Investments</div>
+            </div>
+            <div class="quantity-counter-bg-ad">
+                <div class="counter" id="quantity-counter-ad" data-target="1019" data-flag="thousand">0</div>
+                <div class="describe-quantity">Created Bank Accounts</div>
+            </div>
+            <div class="empty-dot-one"></div>
+            <div class="empty-dot-two"></div>
+            <div class="empty-dot-three"></div>
+            <div class="empty-dot-four"></div>
+            <div class="empty-dot-five"></div>
+            <div class="empty-dot-six"></div>
+            <div class="empty-dot-seven"></div>
+        </div>
+        <div class="login-space">
+            <form action="/user/login" method="POST" class="form-login" autocomplete="off">
+                <fieldset>
+                    <legend>
+                        <i class="fas fa-user"></i>
+                        <h1>Login Here</h1>
+                    </legend>
+                    <div class="formula login-formula">
+                        <label for="email">Email:</label>
+                        <input type="string" name="email" placeholder="Enter Login">
+                    </div>
+                    <div class="formula password-formula">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" placeholder="Enter Password">
+                    </div>
+                    <div class="formula submit-formula">
+                        <button type="button" class="sub-news-btn">Log In</button>
+                    </div>
+                    <!-- <div class="formula forgot-formula">
+                        <label for="forgot-password">
+                            <a href="#">Forgot Password?</a>
+                        </label>
+                    </div> -->
+                </fieldset>
+            </form>
+        </div>
+        <div class="register-space">
+            <form action="/user/register" method="POST" class="form-register" autocomplete="new-password">
+                <fieldset>
+                    <legend>
+                        <i class="fas fa-user-plus"></i>
+                        <h1>Open an account here</h1>
+                    </legend>
+                    <div class="main-side">
+                        <div class="first-left-side">
+                            <div class="formula name-formula">
+                                <label for="name">First name:</label>
+                                <input type="text" name="name" pattern="^\S*$" value="<%= typeof name != 'undefined' ? name : '' %>" placeholder="Enter Name" required>
+                            </div>
+                            <div class="formula surname-formula">
+                                <label for="surname">Surname:</label>
+                                <input type="text" name="surname" value="<%= typeof surname != 'undefined' ? surname : '' %>" placeholder="Enter surname" required>
+                            </div>
+                            <div class="formula password-formula">
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" onpaste="return false" placeholder="Enter Password" required>
+                            </div>
+                            <div class="formula password2-formula">
+                                <label for="password2">Repeat password:</label>
+                                <input type="password" name="password2" onpaste="return false;" placeholder="Enter Password" required>
+                            </div>
+                            <div class="formula phone-formula">
+                                <label for="phone">Phone number:</label>
+                                <input type="tel" name="phone" value="<%= typeof phone != 'undefined' ? phone : '' %>" placeholder="Enter Phone Number" required>
+                            </div>
+                        </div>
+                        <div class="second-right-side">
+                            <div class="formula pesel-formula">
+                                <label for="pesel">Pesel:</label>
+                                <input type="text" name="pesel" value="<%= typeof pesel != 'undefined' ? pesel : '' %>" placeholder="Enter Pesel" required>
+                            </div>
+                            <div class="formula email-formula">
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" placeholder="Enter Email" required>
+                            </div>
+                            <div class="formula date-formula">
+                                <label for="date">Date of birth:</label>
+                                <input type="date" name="date" value="<%= typeof date != 'undefined' ? date : '' %>" placeholder="Enter Date of birth" required>
+                            </div>
+                            <div class="formula sex-formula">
+                                <label for="sex">Sex:</label>
+                                <select name="sex" required>
+                                    <% if (typeof sex !== 'undefined' && sex === 'female') { %>
+                                        <option value="female" selected="selected">Female</option>
+                                        <option value="male">Male</option>
+                                    <% } else { %>
+                                        <option value="male" selected="selected">Male</option>
+                                        <option value="female">Female</option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <div class="formula terms-formula">
+                                <label for="terms"><a href="#" class="no-redirect">Accept the terms of service:</a></label>
+                                <input type="checkbox" value="true" name="terms" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-formula">
+                        <button type="button" class="register-btn">Sign Up</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <button type="submit" class="move-up-btn"></button>
+        <div class="newsletter-space">
+            <form action="/user/subscribe" method="POST" class="form-newsletter" autocomplete="off">
+                <fieldset>
+                    <legend>
+                        <i class="fas fa-envelope-open-text"></i>
+                        <h1>Subscribe to the Newsletter</h1>
+                    </legend>
+                    <div class="formula newsletter-name-formula">
+                        <label for="newsletter-name">Name:</label>
+                        <input type="text" name="newsletterName" placeholder="Enter Name">
+                    </div>
+                    <div class="formula newsletter-surname-formula">
+                        <label for="newsletter-surname">Surname:</label>
+                        <input type="text" name="newsletterSurname" placeholder="Enter Surname">
+                    </div>
+                    <div class="formula newsletter-formula">
+                        <label for="newsletter-email">Email:</label>
+                        <input type="email" name="newsletterEmail" placeholder="Enter Emal">
+                    </div>
+                    <div class="formula subscribe-formula">
+                        <button type="button" class="subscribe-news-btn">Subscribe</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+    <footer>
+        &copy; 2020 Arialy - Your Trusted Banking. Helpline (open 24 hours a day, 7 days a week): *** *** ***.
+    </footer>
+    <script src="/home.js"></script>
+</body>

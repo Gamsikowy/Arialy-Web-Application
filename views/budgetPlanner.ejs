@@ -1,0 +1,541 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,600&display=swap" rel="stylesheet">
+    <link href="/css/budgetPlanner.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <title>Arialy - Your Trusted Banking</title>
+</head>
+<body>
+    <header>
+        <div class="upper-nav-bar">
+            <div class="logo-title">
+                <form action="/home" method="POST" class="logo-navigate">
+                    <img src="./img/logo-title.png" alt="">
+                </form>
+            </div>
+            <div class="sign-log-in">
+                <button class="skip-log-btn">Log in</button>
+                <button class="skip-reg-btn">Sign Up</button>
+                <button class="contact-btn">Contact Us</button>
+            </div>
+        </div>
+        <nav>
+            <ul class="ul-navbar">
+                <form action="/home" method="POST"><li>Home</li></form>
+                <form action="/markets" method="POST"><li>Markets</li></form>
+                <form action="/budgetPlanner" method="POST"><li>Budget Planner</li></form>
+                <form action="/newsReader" method="POST"><li>News</li></form>
+                <form action="/FAQ" method="POST"><li>FAQ</li></form>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Fill out the fields to organize your budget</h1>
+            <form action="/budget-save" method="POST">
+                <setion class="main-site">
+                    <div class="first-left-side">
+                        <div class="planned">
+                            <legend>
+                                <h2>Annual budget plan:</h2>
+                            </legend>
+                            <fieldset>
+                                <div class="formula pl-rev-formula">
+                                    <label for="planned-revenues">Planned monthly revenues:</label>
+                                    <input type="number" name="planned-revenues" class="pl-rev-class">
+                                </div>
+                                <div class="formula pl-exp-formula">
+                                    <label for="planned-expenses">Planned monthly expenses:</label>
+                                    <input type="number" name="planned-expenses" class="pl-exp-class">
+                                </div>
+                                <div class="formula pl-dist-formula">
+                                    <label for="to-be-distributed">To be distributed (per month):</label>
+                                    <input type="number" name="to-be-distributed" class="mon-dest-class-pl" readonly>
+                                </div>
+                                <div class="formula pl-dist-formula">
+                                    <label for="to-be-distributed">Planned annual revenues:</label>
+                                    <input type="number" name="to-be-distributed" class="an-rev-class-pl" readonly>
+                                </div>
+                                <div class="formula pl-dist-formula">
+                                    <label for="to-be-distributed">Planned annual expenses:</label>
+                                    <input type="number" name="to-be-distributed" class="an-exp-class-pl" readonly>
+                                </div>
+                                <div class="formula pl-dist-formula">
+                                    <label for="to-be-distributed">To be distributed (per year):</label>
+                                    <input type="number" name="to-be-distributed" class="an-dest-class-pl" readonly>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="second-right-side">
+                        <div class="real">
+                            <legend>
+                                <h2>Real implementation of the annual budget:</h2>
+                            </legend>
+                            <fieldset>
+                                <div class="formula rl-rev-formula">
+                                    <label for="planned-revenues">Real monthly revenues:</label>
+                                    <input type="number" name="real-revenues" class="rl-rev-class">
+                                </div>
+                                <div class="formula rl-exp-formula">
+                                    <label for="planned-expenses">Real monthly expenses:</label>
+                                    <input type="number" name="real-expenses" class="rl-exp-class">
+                                </div>
+                                <div class="formula rl-dist-formula">
+                                    <label for="to-be-distributed">Real value to be distributed (per month):</label>
+                                    <input type="number" name="to-be-distributed-rl" class="mon-dest-class-rl" readonly>
+                                </div>
+                                <div class="formula pl-dist-formula">
+                                    <label for="to-be-distributed">Real annual revenues:</label>
+                                    <input type="number" name="to-be-distributed" class="an-rev-class-rl" readonly>
+                                </div>
+                                <div class="formula pl-dist-formula">
+                                    <label for="to-be-distributed">Real annual expenses:</label>
+                                    <input type="number" name="to-be-distributed" class="an-exp-class-rl" readonly>
+                                </div>
+                                <div class="formula pl-dist-formula">
+                                    <label for="to-be-distributed">To be distributed (per year):</label>
+                                    <input type="number" name="to-be-distributed" class="an-dest-class-rl" readonly>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </setion>
+                <section class="count-exp-site">
+                    <div class="cat cat-food">
+                        <h3 class="cat-header">Food</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="eating-at-home">Eating at home</label>
+                                <input type="number" class="dynamicCoun" data-counter="1" name="eating-at-home">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="eating-at-work">Eating at work</label>
+                                <input type="number" class="dynamicCoun" data-counter="2" name="eating-at-work">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="eating-out">Eating out</label>
+                                <input type="number" class="dynamicCoun" data-counter="3" name="eating-out">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="alcohol">Alcohol</label>
+                                <input type="number" class="dynamicCoun" data-counter="4" name="alcohol">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="5" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-flat-house">
+                        <h3 class="cat-header">Flat / House</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="rent">Rent</label>
+                                <input type="number" name="rent">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="water-and-sewerage">Water and sewerage</label>
+                                <input type="number" class="dynamicCoun" data-counter="6" name="water-and-sewerage">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="electricity">Electricity</label>
+                                <input type="number" class="dynamicCoun" data-counter="7" name="electricity">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="gas">Gas</label>
+                                <input type="number" class="dynamicCoun" data-counter="8" name="gas">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="heating">Heating</label>
+                                <input type="number" class="dynamicCoun" data-counter="9" name="heating">
+                            </div>
+                            <div class="input-solo six">
+                                <label for="export">Export</label>
+                                <input type="number" class="dynamicCoun" data-counter="10" name="export">
+                            </div>
+                            <div class="input-solo seven">
+                                <label for="rubbish">Rubbish</label>
+                                <input type="number" class="dynamicCoun" data-counter="11" name="rubbish">
+                            </div>
+                            <div class="input-solo eight">
+                                <label for="maintenance">Maintenance</label>
+                                <input type="number" class="dynamicCoun" data-counter="12" name="maintenance">
+                            </div>
+                            <div class="input-solo nine">
+                                <label for="equipment">Equipment</label>
+                                <input type="number" class="dynamicCoun" data-counter="13" name="equipment">
+                            </div>
+                            <div class="input-solo ten">
+                                <label for="real-estate-insurance">Real estate insurance</label>
+                                <input type="number" class="dynamicCoun" data-counter="14" name="real-estate-insurance">
+                            </div>
+                            <div class="input-solo eleven">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="15" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-transport">
+                        <h3 class="cat-header">Transport</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="fuel">Fuel</label>
+                                <input type="number" name="fuel">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="inspections-and-repairs">Inspections and repairs</label>
+                                <input type="number" class="dynamicCoun" data-counter="16" name="inspections-and-repairs">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="equipment">Equipment (e.g. tires)</label>
+                                <input type="number" class="dynamicCoun" data-counter="17" name="equipment">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="car-insurance">Car insurance</label>
+                                <input type="number" class="dynamicCoun" data-counter="18" name="car-insurance">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="public-transport">Public transport</label>
+                                <input type="number" class="dynamicCoun" data-counter="19" name="public-transport">
+                            </div>
+                            <div class="input-solo six">
+                                <label for="taxi-uber">Taxi / Uber</label>
+                                <input type="number" class="dynamicCoun" data-counter="20" name="taxi-uber">
+                            </div>
+                            <div class="input-solo eleven">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="21" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-telecommunication">
+                        <h3 class="cat-header">Telecommunication</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="telephone-1">Telephone I</label>
+                                <input type="number" class="dynamicCoun" data-counter="22" name="telephone-1">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="telephone-2">Telephone II</label>
+                                <input type="number" class="dynamicCoun" data-counter="23" name="telephone-2">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="TV">TV</label>
+                                <input type="number" class="dynamicCoun" data-counter="24" name="TV">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="Internet">Internet</label>
+                                <input type="number" class="dynamicCoun" data-counter="25" name="Internet">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="26" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-healthcare">
+                        <h3 class="cat-header">Healthcare</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="doctor">Doctor</label>
+                                <input type="number" class="dynamicCoun" data-counter="27" name="doctor">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="survey">Survey</label>
+                                <input type="number" class="dynamicCoun" data-counter="28" name="survey">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="medicine">Medicine</label>
+                                <input type="number" class="dynamicCoun" data-counter="29" name="medicine">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="30" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-clothes">
+                        <h3 class="cat-header">Clothes</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="casual-clothes">Casual clothes</label>
+                                <input type="number" class="dynamicCoun" data-counter="31" name="casual-clothes">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="elegant-clothes">Elegant clothes</label>
+                                <input type="number" class="dynamicCoun" data-counter="32" name="elegant-clothes">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="sport-clothes">Sport clothes</label>
+                                <input type="number" class="dynamicCoun" data-counter="33" name="sport-clothes">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="shoes">Shoes</label>
+                                <input type="number" class="dynamicCoun" data-counter="34" name="shoes">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="accessories">Accessories</label>
+                                <input type="number" class="dynamicCoun" data-counter="35" name="accessories">
+                            </div>
+                            <div class="input-solo six">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="36" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-hygiene">
+                        <h3 class="cat-header">Hygiene</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="cosmetics">Cosmetics</label>
+                                <input type="number" class="dynamicCoun" data-counter="37" name="cosmetics">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="cleaning-supplies">Cleaning supplies</label>
+                                <input type="number" class="dynamicCoun" data-counter="38" name="cleaning-supplies">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="hairdresser">Hairdresser</label>
+                                <input type="number" class="dynamicCoun" data-counter="39" name="hairdresser">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="beautician">Bautician</label>
+                                <input type="number" class="dynamicCoun" data-counter="40" name="beautician">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="41" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-children">
+                        <h3 class="cat-header">Children</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="school-supplies">School supplies</label>
+                                <input type="number" class="dynamicCoun" data-counter="42" name="school-supplies">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="aditional-classes">Additional classes</label>
+                                <input type="number" class="dynamicCoun" data-counter="43" name="additional-classes">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="payments-for-school">Payments for school etc.</label>
+                                <input type="number" class="dynamicCoun" data-counter="44" name="payments-for-school">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="toys-games">Toys / Games</label>
+                                <input type="number" class="dynamicCoun" data-counter="45" name="toys-games">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="childcare">Childcare</label>
+                                <input type="number" class="dynamicCoun" data-counter="46" name="childcare">
+                            </div>
+                            <div class="input-solo six">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="47" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-entertainment">
+                        <h3 class="cat-header">Entertainment</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="gym-swimming-pool">Gym / Swimming pool</label>
+                                <input type="number" class="dynamicCoun" data-counter="48" name="gym-swimming-pool">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="cinema-theater">Cinema / Theater</label>
+                                <input type="number" class="dynamicCoun" data-counter="49" name="cinema-theater">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="concerts">Concerts</label>
+                                <input type="number" class="dynamicCoun" data-counter="50" name="concerts">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="magazines-books">Magazines / Books</label>
+                                <input type="number" class="dynamicCoun" data-counter="51" name="magazines-books">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="hobby">Hobby</label>
+                                <input type="number" class="dynamicCoun" data-counter="52" name="hobby">
+                            </div>
+                            <div class="input-solo six">
+                                <label for="hotel-tourism">Hotel / Tourism</label>
+                                <input type="number" class="dynamicCoun" data-counter="53" name="hotel-tourism">
+                            </div>
+                            <div class="input-solo seven">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="54" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-other-expenses">
+                        <h3 class="cat-header">Other expenses</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="charity">Charity</label>
+                                <input type="number" class="dynamicCoun" data-counter="55" name="charity">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="gifts">Gifts</label>
+                                <input type="number" class="dynamicCoun" data-counter="56" name="gifts">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="RTV -quipment">RTV equipment</label>
+                                <input type="number" class="dynamicCoun" data-counter="57" name="RTV-equipment">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="software">Software</label>
+                                <input type="number" class="dynamicCoun" data-counter="58" name="software">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="education-training">Education / Training</label>
+                                <input type="number" class="dynamicCoun" data-counter="59" name="education-training">
+                            </div>
+                            <div class="input-solo six">
+                                <label for="other-services">Other services</label>
+                                <input type="number" class="dynamicCoun" data-counter="60" name="other-services">
+                            </div>
+                            <div class="input-solo seven">
+                                <label for="taxes">Taxes</label>
+                                <input type="number" class="dynamicCoun" data-counter="61" name="taxes">
+                            </div>
+                            <div class="input-solo eight">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="62" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-other-debt-repayment">
+                        <h3 class="cat-header">Debt repayment</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="mortgage">Mortgage</label>
+                                <input type="number" class="dynamicCoun" data-counter="63" name="mortgage">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="consumer-loan">Consumer loan</label>
+                                <input type="number" class="dynamicCoun" data-counter="64" name="consumer-loan">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="personal-loan">Personal loan</label>
+                                <input type="number" class="dynamicCoun" data-counter="65" name="personal-loan">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="credit-card-1">Credit Card 1</label>
+                                <input type="number" class="dynamicCoun" data-counter="66" name="credit-card-1">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="credit-card-2">Credit Card 2</label>
+                                <input type="number" class="dynamicCoun" data-counter="67" name="credit-card-2">
+                            </div>
+                            <div class="input-solo six">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun" data-counter="68" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cat cat-savings">
+                        <h3 class="cat-header">Savings</h3>
+                        <fieldset class="cat-inputs">
+                            <div class="input-solo one">
+                                <label for="emergency-fund">Emergency Fund</label>
+                                <input type="number" class="dynamicCoun" data-counter="69" name="emergency-fund">
+                            </div>
+                            <div class="input-solo two">
+                                <label for="irregular-expenses ">Irregular Expenses </label>
+                                <input type="number" class="dynamicCoun" data-counter="70" name="irregular-expenses">
+                            </div>
+                            <div class="input-solo three">
+                                <label for="fund">Fund</label>
+                                <input type="number" class="dynamicCoun" data-counter="71" name="fund">
+                            </div>
+                            <div class="input-solo four">
+                                <label for="financial-cushion">Financial cushion</label>
+                                <input type="number" class="dynamicCoun" data-counter="72" name="financial-cushion">
+                            </div>
+                            <div class="input-solo five">
+                                <label for="debt-overpayment">Debt overpayment</label>
+                                <input type="number" class="dynamicCoun" data-counter="73" name="debt-overpayment">
+                            </div>
+                            <div class="input-solo six">
+                                <label for="holiday-fund">Holiday fund</label>
+                                <input type="number" class="dynamicCoun" data-counter="74" name="holiday-fund">
+                            </div>
+                            <div class="input-solo seven">
+                                <label for="other">Other</label>
+                                <input type="number" class="dynamicCoun"  data-counter="75" name="other">
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+            </form>
+        </div>
+        <button type="button" class="save-btn">Create chart</button>
+        <section class="summary">
+            <canvas id="myChart"></canvas>
+            <div class="statement">
+                <h4>Summary of finances:</h4>
+                <div class="overall food-ovrl">
+                    <label for="food-overall">Food:</label>
+                    <input type="number" class="dynamic-result-food" data-counter="5" name="food-overall" readonly>
+                </div>
+                <div class="overall flat-house-ovrl">
+                    <label for="flat-house-overall">Flat / House</label>
+                    <input type="number" class="dynamic-result-flat-house" data-counter="5" name="flat-house-overall" readonly>
+                </div>
+                <div class="overall transport-ovrl">
+                    <label for="transport-overall">Transport:</label>
+                    <input type="number" class="dynamic-result-transport" data-counter="5" name="transport-overall" readonly>
+                </div>
+                <div class="overall telecommunication-ovrl">
+                    <label for="telecommunication-overall">Telecommunication:</label>
+                    <input type="number" class="dynamic-result-telecommunication" data-counter="5" name="telecommunication-overall" readonly>
+                </div>
+                <div class="overall healthcare-ovrl">
+                    <label for="healthcare-overall">Healthcare:</label>
+                    <input type="number" class="dynamic-result-healthcare" data-counter="5" name="healthcare-overall" readonly>
+                </div>
+                <div class="overall clothes-ovrl">
+                    <label for="clothes-overall">Clothes:</label>
+                    <input type="number" class="dynamic-result-clothes" data-counter="5" name="clothes-overall" readonly>
+                </div>
+                <div class="overall hygiene-ovrl">
+                    <label for="hygiene-overall">Hygiene:</label>
+                    <input type="number" class="dynamic-result-hygiene" data-counter="5" name="hygiene-overall" readonly>
+                </div>
+                <div class="overall children-ovrl">
+                    <label for="children-overall">Children:</label>
+                    <input type="number" class="dynamic-result-children" data-counter="5" name="children-overall" readonly>
+                </div>
+                <div class="overall entertainment-ovrl">
+                    <label for="entertainment-overall">Entertainment:</label>
+                    <input type="number" class="dynamic-result-entertainment" data-counter="5" name="entertainment-overall" readonly>
+                </div>
+                <div class="overall other-expenses-ovrl">
+                    <label for="other-expenses-overall">Other expenses:</label>
+                    <input type="number" class="dynamic-result-other-expenses" data-counter="5" name="other-expenses-overall" readonly>
+                </div>
+                <div class="overall debt-repayment-ovrl">
+                    <label for="debt-repayment-overall">Debt repayment:</label>
+                    <input type="number" class="dynamic-result-debt-repayment" data-counter="5" name="debt-repayment-overall" readonly>
+                </div>
+                <div class="overall savings-ovrl">
+                    <label for="savings-overall">Savings:</label>
+                    <input type="number" class="dynamic-result-savings" name="savings-overall" readonly>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2020 Arialy - Your Trusted Banking. Helpline (open 24 hours a day, 7 days a week): *** *** ***.
+    </footer>
+    <script src="/budgetPlanner.js"></script>
+</body>
+</html>

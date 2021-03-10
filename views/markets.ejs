@@ -1,0 +1,87 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,600&display=swap" rel="stylesheet">
+    <link href="/css/markets.css" rel="stylesheet" type="text/css"/>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <title>Arialy - Your Trusted Banking</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="ul-navbar">
+                <form action="/home" method="POST"><li>Home</li></form>
+                <form action="/markets" method="POST"><li>Markets</li></form>
+                <form action="/budgetPlanner" method="POST"><li>Budget Planner</li></form>
+                <form action="/newsReader" method="POST"><li>News</li></form>
+                <form action="/FAQ" method="POST"><li>FAQ</li></form>
+            </ul>
+        </nav>
+        <div class="user-bar">
+            <div class="logout">
+            <h3 class="time-display"></h3>
+            <form action="/user/logout" method="POST" class="form-logout">
+                <fieldset>
+                    <legend>
+                        <div class="formula logout-formula">
+                            <button type="button" class="log-out-btn">Log Out</button>
+                        </div>
+                    </legend>
+                </fieldset>
+            </form>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="communication">
+            <%- include('partials/messages'); %>
+       </div>
+       <div class="container">
+           <div class="crypto-viewport">
+            <div class="header-description">
+                <div class="title">Name</div>
+                <div class="title">Thumbnail</div>
+                <div class="title">Symbol</div>
+                <div class="title">Highest price</div>
+                <div class="title">Lowest price</div>
+                <div class="title">24H Price Change</div>
+                <div class="title">24H Market Cap</div>
+            </div>
+            <% for (let i = initialIterator; i < upperIterator; i++) { %>
+                <div class="record">
+                    <div class="coin coin-name"><%= crypto.data[i].name %></div>
+                    <div class="coin coin-image"><img src="<%= crypto.data[i].image %>" alt=""/></div>
+                    <div class="coin coin-symbol"><%= crypto.data[i].symbol.toUpperCase() %></div>
+                    <div class="coin coin-high">$<%= crypto.data[i].high_24h %></div>
+                    <div class="coin coin-low">$<%= crypto.data[i].low_24h %></div>
+                    <div class="coin coin-price-24"><%= crypto.data[i].price_change_percentage_24h.toFixed(2) %>%</div>
+                    <div class="coin coin-market-cap-24"><%= crypto.data[i].market_cap_change_percentage_24h.toFixed(2) %>%</div>
+                </div>
+            <% } %>
+           </div>
+       </div>
+       <div class="btns">
+        <form action="/markets/previous" method="POST" class="prev-btn-form">
+            <button type="button" class="previous-btn">Previous</button>
+        </form>
+        <form action="/markets/next" method="POST" class="next-btn-form">
+            <button type="button" class="next-btn">Next</button>
+        </form>
+       </div>
+       <div class="delete-account">
+            <button type="button" class="previous-del">Delete this account</button>
+            <div class="del-support">
+                <form action="/user/delete/<%= user.email %>?_method=DELETE" method="POST" class="delete-btn-form">
+                    <div class="g-recaptcha" data-sitekey="6LcsGHEaAAAAAI4NXuPeLJxtSSONqUhgGy1W-J5U"></div>
+                    <button type="button" class="delete-btn">Delete</button>
+                </form>
+            </div>
+       </div>
+    </main>
+    <footer>
+        &copy; 2020 Arialy - Your Trusted Banking. Helpline (open 24 hours a day, 7 days a week): *** *** ***.
+    </footer>
+    <script src="/markets.js"></script>
+</body>

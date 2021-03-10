@@ -1,0 +1,41 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 600;
+    background-color: rgb(243, 240, 240);
+}
+
+.container {
+    position: relative;
+    margin-top: 150px;
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 {
+    font-size: 120px;
+}
+
+h2 {
+    font-size: 50px;
+ }
+
+ p {
+    font-size: 26px;
+    margin-top: 30px;
+ }
+
+.four-style {
+    color: #14679b;
+}
+
+.zero-style {
+    color: #005B47;
+}

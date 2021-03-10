@@ -1,0 +1,46 @@
+mongo E11000 error:
+    początkowo schema zawierało pole login z required: true. Usunąłem je z modelu lecz w db nadal funkcjonowało jako indeks.
+    Po pierwszej rejedtracji login został doyślnie ustwaiony na null. Po 2 też próbował być nullem ale jeden null już istnial stąd błąd.
+    W clusters, wszedłem w index i dropnąłem pole loginu.
+
+http nie pamięta nic  nas, stad potrzeba cookies
+
+Sesion Store - implementacja db przechowującej dane z sesji. Używając express-sessions biblioteka ta korzysta z
+własnej implementacji
+
+Cookies mają expires property, czyli przeglądarka usunie je po maxAge przez co nie będą wysyłane przy każdym requwscie
+kiedy np wywłamy GET request app.use(session(... inicjuje sesję, tworzy jej id i do cookies przypisuje to id.
+Ciasteczko będzie ustwione w Response Headers w set-cookie 
+
+serialize - passport bierze użytkownika z db, pobiera jego id i do req.session dodaje property:
+    passport: {user: 'tutaj id'}
+deserialize - passport bierze użytkownika z db i dołacza property obiektu req.user 
+
+app.use(passport.initilize() i passprot.session()) działają razem tzn. sprawdzają czy propety
+req.session.passport.user nie jest nullem i jeśli nie jest, to znaczy jest jakiś zalogowany user i my wtedy
+bierzemy id z property i używając deserialize, przesyłamy id, pobieramu usera z db i tego usera pbranego z db
+przypisujemy do req.session.passport.user, czyli sprawia, że nuser nie jest już zalogowany
+
+req.isAuthenticated sprawdza czy req.session.passport.user jest nullem
+
+req.logout() usuwa req. 
+
+session:                                cookies:
+stored on server                        browser
+larger amountsof data                   small
+user credenials, secret info            cannot
+
+Simetric cryptgraphy - one key/way of encrypting data
+Asimetric c. - lock with publickey and unlock with priavte k.
+
+trap door function:
+take infinitly large or small data, put them in trap door function (e.g. sha-256) create
+deterministic outcome
+
+elliptic curve multiplication - mathematically links the private and public keys - mają publiczny nie da się
+ustalić prywatnego, a mając prywatny można ustalić publiczny 
+we can actually verify that a public key corresponds to a given private key mathematically without revealing
+the private key to the person trying to verify it
+ 
+
+cookie-parser looks at the headers between the client and the server transactions and parses it
