@@ -162,7 +162,7 @@ router.post('/captcha', async (req, res) => {
     return res.end();
   }
   // pass your secret key
-  const secretCaptchaKey = '6LcsGHEaAAAAAPsIQ8xEBEZZZ75YXi3UD8ylzrbj';
+  const secretCaptchaKey = '';
   const query = stringify({
     secret: secretCaptchaKey,
     response: req.body.captcha,
