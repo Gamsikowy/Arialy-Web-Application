@@ -19,7 +19,6 @@ const db = mongoose.connection;
 router.get('/register', forwardAuthenticated, (req, res, next) => res.redirect('markets'));
 
 // login Process
-//router.get('/login', forwardAuthenticated, (req, res, next) => res.redirect('markets'));
 router.get('/login', forwardAuthenticated, (req, res, next) => res.render('markets'));
 
 // redirect home
@@ -29,14 +28,16 @@ router.post('/register', forwardAuthenticated, async (req, res) => {
     // checking if there are empty fields
     if (!name || !surname || !password || !password2 || !phone || !pesel || !email || !date || !sex || !terms) {
       req.flash('error_reg_msg', 'Please enter all fields.');
-      res.render('home', { error_reg_msg: req.flash('error_reg_msg'), name, surname, phone, pesel, date, sex });
+      res.render('home', { error_reg_msg: req.flash('error_reg_msg'),
+                          name, surname, phone, pesel, date, sex });
       return res.end();
     }
 
     // checking the length of the pesel
     if (pesel.length !== 11) {
       req.flash('error_reg_msg', 'The provided pesel should contain 11 digits.');
-      res.render('home', { error_reg_msg: req.flash('error_reg_msg'), name, surname, phone, pesel, date, sex });
+      res.render('home', { error_reg_msg: req.flash('error_reg_msg'),
+                          name, surname, phone, pesel, date, sex });
       return res.end();
     }
 
@@ -44,14 +45,16 @@ router.post('/register', forwardAuthenticated, async (req, res) => {
     phone.replace(/\s/g,'');
     if (password != password2) {
       req.flash('error_reg_msg', 'Passwords do not match.');
-      res.render('home', { error_reg_msg: req.flash('error_reg_msg'), name, surname, phone, pesel, date, sex });
+      res.render('home', { error_reg_msg: req.flash('error_reg_msg'),
+                          name, surname, phone, pesel, date, sex });
       return res.end();
     }
   
     // checking the correctness of the password
     let passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
     if (!passRegex.test(password)) {
-      req.flash('error_reg_msg', 'Password must be at least 8 characters, make sure it contains one capital letter, one small letter and number.');
+      req.flash('error_reg_msg',
+                'Password must be at least 8 characters, make sure it contains one capital letter, one small letter and number.');
       res.render('home', { error_reg_msg: req.flash('error_reg_msg'), name, surname, phone, pesel, date, sex });
       return res.end();
     }
@@ -64,7 +67,8 @@ router.post('/register', forwardAuthenticated, async (req, res) => {
 
     if (new Date(birthYear + 18, birthMonth, birthDay) > new Date()) {
       req.flash('error_reg_msg', 'You must be at least 18 years old to create an account.');
-      res.render('home', { error_reg_msg: req.flash('error_reg_msg'), name, surname, phone, pesel, date, sex });
+      res.render('home', { error_reg_msg: req.flash('error_reg_msg'),
+                          name, surname, phone, pesel, date, sex });
       return res.end();
     }
   
@@ -72,7 +76,8 @@ router.post('/register', forwardAuthenticated, async (req, res) => {
     User.findOne({ $or: [{ email: email }, { pesel: pesel }]}).then(user => {
       if (user) {
         req.flash('error_reg_msg', 'Provided email/pesel already exists.');
-        res.render('home', { error_reg_msg: req.flash('error_reg_msg'), name, surname, phone, pesel, date, sex });
+        res.render('home', { error_reg_msg: req.flash('error_reg_msg'),
+                            name, surname, phone, pesel, date, sex });
         return res.end();
       } else {
           const newUser = new User({
@@ -99,7 +104,8 @@ router.post('/register', forwardAuthenticated, async (req, res) => {
                 });
 
                     req.flash('success_reg_msg', 'The account has been successfully created.');
-                    res.render('home', { success_reg_msg: req.flash('success_reg_msg'), name, surname, phone, pesel, date, sex });
+                    res.render('home', { success_reg_msg: req.flash('success_reg_msg'),
+                                        name, surname, phone, pesel, date, sex });
                     return res.end();
                   }).catch(e => console.log(e));
               });
